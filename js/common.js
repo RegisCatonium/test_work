@@ -2,11 +2,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// кастомный курсор
 	let cursor = document.querySelector('#cursor')
+	let body = document.querySelector('body')
 	let links = document.querySelectorAll('a, button')
+	let x, y
 
 	document.addEventListener('mousemove', (e) => {
-		let x = e.clientX
-		let y = e.clientY
+		x = e.clientX
+		y = e.clientY
 		cursor.style.left = x + 'px'
 		cursor.style.top = y + 'px'
 	})
@@ -19,6 +21,50 @@ document.addEventListener('DOMContentLoaded', function() {
 			cursor.classList.remove('active')
 		})
 	})
+	
+	body.addEventListener('mousemove', () => {
+      cursor.classList.remove('hidden')
+   })
+   body.addEventListener('mouseout', () => {
+		cursor.classList.add('hidden')
+	})
+	//--
+
+
+	// движение кругов (не работает)
+	// let circles = document.querySelectorAll('.circle')
+
+	// circles.forEach((item) => {
+	// 	let lf = window.getComputedStyle(item).left
+	// 	let tp = window.getComputedStyle(item).top
+	// 	// let r = window.getComputedStyle(item).width
+
+	// 	let coord = item.getBoundingClientRect()
+	// 	let f = coord.left
+	// 	let p = coord.top
+
+	// 	// console.log(lf, tp)
+	// 	item.addEventListener('mouseover', (e) => {
+	// 		// console.log(lf)
+	// 		// console.log( x + 'px')
+	// 		// console.log( x + 'px' + lf)
+			
+	// 		item.style.transform = `translate(${x}px, ${y}px)`
+	// 		// item.style.left = x + f + 'px'
+	// 		// item.style.top = y + p +'px' 
+	// 	})
+	// 	item.addEventListener('mouseout', () => {
+	// 		item.style.left = lf
+	// 		item.style.top = tp
+	// 		item.style.transform = `translate(0, 0)`
+	// 	})
+
+
+	// })
+	// --
+
+
+
 
 
 	// анимация при скролле

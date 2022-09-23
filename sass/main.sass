@@ -13,8 +13,8 @@
 	transition: transform .2s ease
 	&.active
 		transform: scale(1.5) translate(-50%, -50%)
-	// &.hidden
-	// 	transform: scale(.001)
+	&.hidden
+		transform: scale(.001)
 //--
 
 .title
@@ -114,13 +114,16 @@
 .btn
 	width: 4.8rem
 	height: 4.8rem
-	border: 1px solid $text-color
+	border: 1px solid rgba($text-color, .5)
 	background-repeat: no-repeat
 	background-position: center
 	&-prev
 		background-image: url(../images/icon/left.svg)
 	&-next
 		background-image: url(../images/icon/right.svg)
+	&.active
+		border: 1px solid rgba($text-color, 1)
+
 
 .tabs
 	display: flex
@@ -155,8 +158,9 @@
 	top: var(--top)
 	right: var(--right)
 	z-index: var(--zindex)
+	transform: translate(0, 0)
 
-	transition: top 1s linear, left 1s linear
+	transition: top 1s linear, left 1s linear, transform 1s linear
 	&-left
 		left: var(--left)
 	&-purpur

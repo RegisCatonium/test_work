@@ -45,6 +45,11 @@ body {
           transform: scale(1.5) translate(-50%, -50%);
 }
 
+#cursor.hidden {
+  -webkit-transform: scale(0.001);
+          transform: scale(0.001);
+}
+
 .title {
   font-size: 6.4rem;
   font-weight: 500;
@@ -207,7 +212,7 @@ body {
 .btn {
   width: 4.8rem;
   height: 4.8rem;
-  border: 1px solid #f5f5f5;
+  border: 1px solid rgba(245, 245, 245, 0.5);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -218,6 +223,10 @@ body {
 
 .btn-next {
   background-image: url(../images/icon/right.svg);
+}
+
+.btn.active {
+  border: 1px solid whitesmoke;
 }
 
 .tabs {
@@ -277,8 +286,12 @@ body {
   top: var(--top);
   right: var(--right);
   z-index: var(--zindex);
-  -webkit-transition: top 1s linear, left 1s linear;
-  transition: top 1s linear, left 1s linear;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+  -webkit-transition: top 1s linear, left 1s linear, -webkit-transform 1s linear;
+  transition: top 1s linear, left 1s linear, -webkit-transform 1s linear;
+  transition: top 1s linear, left 1s linear, transform 1s linear;
+  transition: top 1s linear, left 1s linear, transform 1s linear, -webkit-transform 1s linear;
 }
 
 .circle-left {
