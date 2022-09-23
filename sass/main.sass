@@ -1,5 +1,22 @@
 @import config
 
+// курсор
+#cursor
+	width: 5rem
+	height: 5rem
+	border-radius: 50%
+	background-color: rgba(#63BA69, .7)
+	transform: scale(1) translate(-50%, -50%)
+	pointer-events: none
+	position: absolute
+	z-index: 100000
+	transition: transform .2s ease
+	&.active
+		transform: scale(1.5) translate(-50%, -50%)
+	// &.hidden
+	// 	transform: scale(.001)
+//--
+
 .title
 	font-size: 6.4rem
 	font-weight: 500
@@ -19,7 +36,15 @@
 	background-color: $bg-color-1
 	overflow-x: scroll
 	overflow-y: hidden
-	
+	scroll-behavior: smooth
+	scroll-snap-type: x mandatory
+	&-case1
+		background-color: #8DBDBA
+	&-case2
+		background-color: #8675BA
+	// &::-webkit-scrollbar
+	// 	height: 0
+
 .case
 	flex-shrink: 0
 	width: 100%
