@@ -9,7 +9,7 @@ html, body {
 }
 
 html {
-  font-size: 10px;
+  font-size: calc(100vw/1600*10);
 }
 
 h1, h2, h3, h4, h5, p {
@@ -63,7 +63,6 @@ body {
       flex-wrap: nowrap;
   width: 100%;
   height: 100%;
-  position: relative;
   background-color: #8DBDBA;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -74,10 +73,54 @@ body {
 
 .container-case1 {
   background-color: #8DBDBA;
+  -webkit-animation: bg-anim-2 2s ease;
+          animation: bg-anim-2 2s ease;
 }
 
 .container-case2 {
   background-color: #8675BA;
+  -webkit-animation: bg-anim 2s ease;
+          animation: bg-anim 2s ease;
+}
+
+.container::-webkit-scrollbar {
+  height: 0;
+}
+
+@-webkit-keyframes bg-anim {
+  0% {
+    background-color: #8DBDBA;
+  }
+  100% {
+    background-color: #8675BA;
+  }
+}
+
+@keyframes bg-anim {
+  0% {
+    background-color: #8DBDBA;
+  }
+  100% {
+    background-color: #8675BA;
+  }
+}
+
+@-webkit-keyframes bg-anim-2 {
+  0% {
+    background-color: #8675BA;
+  }
+  100% {
+    background-color: #8DBDBA;
+  }
+}
+
+@keyframes bg-anim-2 {
+  0% {
+    background-color: #8675BA;
+  }
+  100% {
+    background-color: #8DBDBA;
+  }
 }
 
 .case {
@@ -125,6 +168,19 @@ body {
   top: 30rem;
   left: 10rem;
   z-index: 20;
+  opacity: 0;
+  -webkit-transform: translateY(50px);
+          transform: translateY(50px);
+  -webkit-transition: opacity .5s 2s linear, -webkit-transform .5s 2s linear;
+  transition: opacity .5s 2s linear, -webkit-transform .5s 2s linear;
+  transition: transform .5s 2s linear, opacity .5s 2s linear;
+  transition: transform .5s 2s linear, opacity .5s 2s linear, -webkit-transform .5s 2s linear;
+}
+
+.card.show {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
 
 .card__title {
@@ -221,6 +277,8 @@ body {
   top: var(--top);
   right: var(--right);
   z-index: var(--zindex);
+  -webkit-transition: top 1s linear, left 1s linear;
+  transition: top 1s linear, left 1s linear;
 }
 
 .circle-left {

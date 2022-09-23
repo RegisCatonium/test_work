@@ -31,25 +31,35 @@
 	flex-wrap: nowrap
 	width: 100%
 	height: 100%
-	// padding: 10rem
-	position: relative
+	// position: relative
 	background-color: $bg-color-1
 	overflow-x: scroll
 	overflow-y: hidden
 	scroll-behavior: smooth
 	scroll-snap-type: x mandatory
 	&-case1
-		background-color: #8DBDBA
+		background-color: $bg-color-1
+		animation: bg-anim-2 2s ease
 	&-case2
-		background-color: #8675BA
-	// &::-webkit-scrollbar
-	// 	height: 0
+		background-color: $bg-color-2
+		animation: bg-anim 2s ease
+	&::-webkit-scrollbar
+		height: 0
+@keyframes bg-anim
+	0%
+		background-color: $bg-color-1
+	100%
+		background-color: $bg-color-2
+@keyframes bg-anim-2
+	0%
+		background-color: $bg-color-2
+	100%
+		background-color: $bg-color-1
 
 .case
 	flex-shrink: 0
 	width: 100%
 	height: 100%
-	// padding: 10rem
 	position: relative
 	scroll-snap-align: end
 	overflow: hidden
@@ -65,7 +75,6 @@
 
 .card
 	display: flex
-	// display: none
 	flex-direction: column
 	gap: 2rem
 	width: 66.8rem
@@ -77,12 +86,16 @@
 	background-size: cover
 	border: 0.5px solid rgba(#405950, .5)
 	box-shadow: inset 1px 1px 15px rgba(#354a42, .2)
-
 	position: absolute
 	top: 30rem
 	left: 10rem
-
 	z-index: 20
+	opacity: 0
+	transform: translateY(50px)
+	transition: transform .5s 2s linear, opacity .5s 2s linear
+	&.show
+		opacity: 1
+		transform: translateY(0)
 
 	&__title
 		margin: 0
@@ -143,6 +156,7 @@
 	right: var(--right)
 	z-index: var(--zindex)
 
+	transition: top 1s linear, left 1s linear
 	&-left
 		left: var(--left)
 	&-purpur
