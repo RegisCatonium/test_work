@@ -23,14 +23,34 @@ body {
   font-size: 6.4rem;
   font-weight: 500;
   color: #f5f5f5;
+  position: absolute;
+  top: 10rem;
+  left: 10rem;
+  z-index: 1000;
 }
 
 .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   width: 100%;
   height: 100%;
-  padding: 10rem;
   position: relative;
   background-color: #8DBDBA;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.case {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  scroll-snap-align: end;
+  overflow: hidden;
 }
 
 .mockup {
@@ -41,7 +61,7 @@ body {
   position: absolute;
   top: 13.7rem;
   right: 7.9rem;
-  z-index: 1;
+  z-index: 4;
 }
 
 .card {
@@ -65,9 +85,9 @@ body {
   -webkit-box-shadow: inset 1px 1px 15px rgba(53, 74, 66, 0.2);
           box-shadow: inset 1px 1px 15px rgba(53, 74, 66, 0.2);
   position: absolute;
-  top: 25rem;
+  top: 30rem;
   left: 10rem;
-  z-index: 10;
+  z-index: 20;
 }
 
 .card__title {
@@ -148,5 +168,29 @@ body {
 
 .tabs__text {
   font-size: 1.3rem;
+}
+
+.circle {
+  display: block;
+  width: var(--r);
+  height: var(--r);
+  background-color: rgba(64, 89, 80, 0.4);
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+  -webkit-box-shadow: 29px 54px 56px rgba(36, 52, 102, 0.25), inset 2px 2px 2px rgba(84, 101, 157, 0.1);
+          box-shadow: 29px 54px 56px rgba(36, 52, 102, 0.25), inset 2px 2px 2px rgba(84, 101, 157, 0.1);
+  border-radius: 50%;
+  position: absolute;
+  top: var(--top);
+  right: var(--right);
+  z-index: var(--zindex);
+}
+
+.circle-left {
+  left: var(--left);
+}
+
+.circle-purpur {
+  background-color: rgba(141, 104, 177, 0.4);
 }
 /*# sourceMappingURL=main.css.map */
