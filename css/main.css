@@ -147,6 +147,7 @@ body {
   top: 13.7rem;
   right: 7.9rem;
   z-index: 4;
+  pointer-events: none;
 }
 
 .card {
@@ -288,10 +289,10 @@ body {
   z-index: var(--zindex);
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0);
-  -webkit-transition: top 1s linear, left 1s linear, -webkit-transform 1s linear;
-  transition: top 1s linear, left 1s linear, -webkit-transform 1s linear;
-  transition: top 1s linear, left 1s linear, transform 1s linear;
-  transition: top 1s linear, left 1s linear, transform 1s linear, -webkit-transform 1s linear;
+  -webkit-transition: -webkit-transform 1s linear;
+  transition: -webkit-transform 1s linear;
+  transition: transform 1s linear;
+  transition: transform 1s linear, -webkit-transform 1s linear;
 }
 
 .circle-left {

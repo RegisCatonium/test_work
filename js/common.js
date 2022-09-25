@@ -30,43 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	})
 	//--
 
-
-	// движение кругов (не работает)
-	// let circles = document.querySelectorAll('.circle')
-
-	// circles.forEach((item) => {
-	// 	let lf = window.getComputedStyle(item).left
-	// 	let tp = window.getComputedStyle(item).top
-	// 	// let r = window.getComputedStyle(item).width
-
-	// 	let coord = item.getBoundingClientRect()
-	// 	let f = coord.left
-	// 	let p = coord.top
-
-	// 	// console.log(lf, tp)
-	// 	item.addEventListener('mouseover', (e) => {
-	// 		// console.log(lf)
-	// 		// console.log( x + 'px')
-	// 		// console.log( x + 'px' + lf)
-			
-	// 		item.style.transform = `translate(${x}px, ${y}px)`
-	// 		// item.style.left = x + f + 'px'
-	// 		// item.style.top = y + p +'px' 
-	// 	})
-	// 	item.addEventListener('mouseout', () => {
-	// 		item.style.left = lf
-	// 		item.style.top = tp
-	// 		item.style.transform = `translate(0, 0)`
-	// 	})
-
-
-	// })
-	// --
-
-
-
-
-
 	// анимация при скролле
 	let container = document.querySelector('.container')
 	let case1 = document.querySelector('#case1')
@@ -95,5 +58,30 @@ document.addEventListener('DOMContentLoaded', function() {
 				 (window.innerWidth - bounds.left > 0)) // левее правой
 	}
 //--
+
+// движение кругов
+	let circles = document.querySelectorAll('.circle')
+
+	circles.forEach((item) => {
+		// притягивание курсором кругов
+		item.addEventListener('mousemove', (e) => {
+			let coord = item.getBoundingClientRect()
+			let left = coord.left
+			let top = coord.top
+			let width = left + coord.width
+			let height = top + coord.height
+			let centrX = left + coord.width/2
+			let centrY = top + coord.height/2
+
+			if ((Math.abs(x - centrX) <= width) && (Math.abs( y - centrY) <= height)) {
+				item.style.transform = `translate(${x-centrX}px, ${y-centrY}px)`
+			}
+		})
+		// возвращение круга на место
+		item.addEventListener('mouseout', () => {
+			item.style.transform = `translate(0, 0)`
+		})
+	})
+	// --
 
 })
